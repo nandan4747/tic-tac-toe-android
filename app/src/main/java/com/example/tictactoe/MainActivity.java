@@ -1,5 +1,6 @@
 package com.example.tictactoe;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -7,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.ArrayList;
 
@@ -14,10 +16,9 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     Button b00,b01,b02,b10,b11,b12,b20,b21,b22;
     GameLogic gameLogic = new GameLogic();
-    AlertDialog alertDialog;
-    TextView current;
-    ArrayList<Button> buttons = new ArrayList<>();
 
+    ArrayList<Button> buttons = new ArrayList<>();
+    ConstraintLayout X,O;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +35,9 @@ public class MainActivity extends AppCompatActivity {
         b21 = findViewById(R.id.b32);
         b22 = findViewById(R.id.b33);
 
-        current = findViewById(R.id.current);
 
+        X = findViewById(R.id.x_holder);
+        O = findViewById(R.id.o_holder);
 
         b00.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,9 +95,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-
     }
     private void buttonPressed(int x, int y, Button b){
 
@@ -109,7 +108,14 @@ public class MainActivity extends AppCompatActivity {
                 show_dialog("Game Over!!","DRAW");
             }
         }
-        current.setText(String.valueOf(GameBord.currentMove));
+        if(GameBord.currentMove == 'X'){
+            X.setBackgroundColor(Color.parseColor("#ffaf00"));
+            O.setBackgroundColor(Color.parseColor("#ffffff"));
+        }
+        else{
+            X.setBackgroundColor(Color.parseColor("#ffffff"));
+            O.setBackgroundColor(Color.parseColor("#ffaf00"));
+        }
     }
 
     //popup message
@@ -133,6 +139,8 @@ public class MainActivity extends AppCompatActivity {
 
         }
         GameBord.resetBord();
+        X.setBackgroundColor(Color.parseColor("#ffaf00"));
+        O.setBackgroundColor(Color.parseColor("#ffffff"));
     }
 
 }

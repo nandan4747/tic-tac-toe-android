@@ -128,28 +128,48 @@
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/current"
-        android:layout_width="98dp"
-        android:layout_height="68dp"
-        android:layout_marginBottom="52dp"
-        android:text="X"
-        android:textAlignment="center"
-        android:textColor="#1657FF"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/x_holder"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="69dp"
+        android:background="#ffaf00"
+        android:elevation="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_holder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
-        android:text="Current Move"
-        app:layout_constraintBottom_toTopOf="@+id/current"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="#ffaf00"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/x_icone" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/o_holder"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="69dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_holder">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/o_icon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
