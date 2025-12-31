@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void buttonPressed(int x, int y, Button b){
-        current.setText(String.valueOf(GameBord.previousMove));
+
         String status = gameLogic.make_move(x,y,b);
         buttons.add(b);
         if(!status.equals("1")){
@@ -109,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 show_dialog("Game Over!!","DRAW");
             }
         }
+        current.setText(String.valueOf(GameBord.currentMove));
     }
 
     //popup message
@@ -125,9 +126,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void resetGame(){
+
         for (Button b:buttons) {
             b.setEnabled(true);
             b.setText(" ");
+
         }
         GameBord.resetBord();
     }

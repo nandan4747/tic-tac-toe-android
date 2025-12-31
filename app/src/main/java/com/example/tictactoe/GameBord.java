@@ -6,8 +6,8 @@ public class GameBord {
             {' ',' ',' '},
             {' ',' ',' '}
     };
-    private static char currentMove = 'X';
-    public static char previousMove = 'O';
+    public static char currentMove = 'X';
+    public static char previousMove = 'X';
     private static int count = 0;
     private static boolean win = false;
 
@@ -58,12 +58,16 @@ public class GameBord {
         char move = currentMove;
 
         if (currentMove == 'X') {
-            previousMove = currentMove;
+            previousMove = 'X';
             currentMove = 'O';
 
-        } else {
-            previousMove = currentMove;
+
+
+        } else if(currentMove == 'O') {
+            previousMove = 'O';
             currentMove = 'X';
+
+
         }
 
         return move;
@@ -72,7 +76,7 @@ public class GameBord {
         gameOver = false;
         win = false;
         currentMove = 'X';
-        previousMove = 'O';
+        previousMove = 'X';
         count = 0;
       for(int r = 0;r<=2;r++){
           for(int c = 0;c<=2;c++){
